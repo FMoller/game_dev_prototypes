@@ -18,8 +18,10 @@ class Inventory():
 
         self.lines = lines
         self.cols = cols
-        self.area = [[None for j in cols] for i in rows]
-    
+        self.inv = []
+        self.area = np.zeros((rows,cols))
+
+    def find_space(self,space
 
 
 
