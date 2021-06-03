@@ -3,12 +3,36 @@
 
 #include <iostream>
 
-const int SW = 16;
-const int SH = 32;
-void zoom_wall(char pattern[SW][SH], float zoom) {
-    for (int i = 0; i < SW; i++) {
-        for (int j = 0; j < SH; j++) {
-            std::cout << pattern[i][j];
+const int SW = 32;
+const int SH = 16;
+void zoom_wall(char pattern[SH][SW], float zoom) {
+    char new_pattern[SH][SW];
+    int new_SH = (int)(zoom * SH);
+    int new_SW = (int)(zoom * SW);
+    int off_y = (int)((SH - new_SH) / 2);
+    int off_x = (int)((SW - new_SW) / 2);
+
+    for (int i = 0; i < SH; i++) {
+        for (int j = 0; j < SW; j++) {
+            if ((i < off_y) || (i >= off_y + new_SH)) {
+                new_pattern[i][j] = 32;
+            }
+            else {
+                if ((j < off_x) || (j >= off_x + new_SW)) {
+                    new_pattern[i][j] = 32;
+                }
+                else {
+                    new_pattern[i][j] = pattern[i][j];
+                } 
+            }
+        }
+    }
+
+
+    
+    for (int i = 0; i < SH; i++) {
+        for (int j = 0; j < SW; j++) {
+            std::cout << new_pattern[i][j];
         }
         std::cout << '\n';
     }
@@ -17,9 +41,9 @@ void zoom_wall(char pattern[SW][SH], float zoom) {
 
 int main()
 {
-    char test_mtr[SW][SH];
-    for (int i = 0; i < SW; i++) {
-        for (int j = 0; j < SH; j++) {
+    char test_mtr[SH][SW];
+    for (int i = 0; i < SH; i++) {
+        for (int j = 0; j < SW; j++) {
             if ((i%4>1)* (j % 4>1) || (i%4<=1)*(j%4<=1))
             {
                 test_mtr[i][j] = 176;
@@ -30,7 +54,12 @@ int main()
         }
         std::cout << '\n';
     }
-    zoom_wall(test_mtr, 10);
+    for(int i = 0; i < 1000;i++){
+        std::cout << ((float)i / 1000) << '\n';
+        zoom_wall(test_mtr, (float)i/1000);
+        system("CLS");
+    }
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
