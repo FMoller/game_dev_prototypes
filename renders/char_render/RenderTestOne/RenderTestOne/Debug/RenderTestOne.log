@@ -1,4 +1,4 @@
 ﻿  RenderTestOne.cpp
-C:\Users\frede\Documents\GitHub\game_dev_prototypes\renders\char_render\RenderTestOne\RenderTestOne\RenderTestOne.cpp(98,34): warning C4309: '=': truncation of constant value
-C:\Users\frede\Documents\GitHub\game_dev_prototypes\renders\char_render\RenderTestOne\RenderTestOne\RenderTestOne.cpp(101,34): warning C4309: '=': truncation of constant value
+C:\Users\frede\Documents\GitHub\game_dev_prototypes\renders\char_render\RenderTestOne\RenderTestOne\RenderTestOne.cpp(116,34): warning C4309: '=': truncation of constant value
+C:\Users\frede\Documents\GitHub\game_dev_prototypes\renders\char_render\RenderTestOne\RenderTestOne\RenderTestOne.cpp(119,34): warning C4309: '=': truncation of constant value
   RenderTestOne.vcxproj -> C:\Users\frede\Documents\GitHub\game_dev_prototypes\renders\char_render\RenderTestOne\Debug\RenderTestOne.exe

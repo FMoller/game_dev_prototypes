@@ -6,8 +6,8 @@
 #include <Windows.h>
 #include <iostream>
 
-const int SW = 32;
-const int SH = 16;
+const int SW = 15;
+const int SH = 15;
 
 void cls()
 {
@@ -56,8 +56,26 @@ void setCursorPosition(int x, int y)
 
 void zoom_wall(char pattern[SH][SW], float zoom) {
     char new_pattern[SH][SW];
-    int new_SH = (int)(zoom * SH);
-    int new_SW = (int)(zoom * SW);
+    float f_SH = (zoom * SH);
+    float f_SW = (zoom * SW);
+    int new_SH = (int)f_SH;
+    int new_SW = (int)f_SW;
+
+    if (SH % 2 == 0) {
+        if (new_SH % 2 != 0) new_SH -= 1;
+    }
+    else {
+        if (new_SH % 2 == 0) new_SH -= 1;
+    }
+    if (new_SH < 0) new_SH = 0;
+    if (SH % 2 == 0) {
+        if (new_SW % 2 != 0) new_SW -= 1;
+    }
+    else {
+        if (new_SW % 2 == 0) new_SW -= 1;
+    }
+    if (new_SW < 0) new_SW = 0;
+
     int off_y = (int)((SH - new_SH) / 2);
     int off_x = (int)((SW - new_SW) / 2);
 
@@ -103,9 +121,9 @@ int main()
         }
         std::cout << '\n';
     }
-    for(int i = 0; i < 100;i++){
-        std::cout << ((float)i / 100) << '\n';
-        zoom_wall(test_mtr, (float)i/100);
+    for(int i = 0; i < 500;i++){
+        std::cout << ((float)i / 500) << '\n';
+        zoom_wall(test_mtr, (float)i/500);
         setCursorPosition(0, 0);
     }
     
