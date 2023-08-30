@@ -1,1 +1,5 @@
-# game_dev_prototypes
+# Game Dev Prototypes
+
+Code snippets prototypes to help develop systems in game design.
+
+## Repo Structure:
